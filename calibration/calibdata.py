@@ -34,9 +34,10 @@ def getProjectionMatrices(file_name):
     mtx2 = np.array(calibration_data["mtx2"])
     dist2 = np.array(calibration_data["dist2"])
     R = np.array(calibration_data["R"])
-    T = np.array(calibration_data["T"])
-
-    #RT matrix for C1 is identity.
+    T = np.array([[0.01], [0], [0]])
+    print(f"Rotation matrix: {R}")
+    print(f"Transformation: x {T[0]}, y {T[1]}, z {T[2]}")
+    #RT matrix for C1 is identi ty.
     RT1 = np.concatenate([np.eye(3), [[0],[0],[0]]], axis = -1)
     P1 = mtx1 @ RT1 #projection matrix for C1
     
